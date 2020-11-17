@@ -68,44 +68,38 @@ app.post("/add", (req, res) => {
 
 //subtraction
 app.post("/sub", (req, res) => {
-  let num1 = Number(req.body.num1);
-  let num2 = Number(req.body.num2);
-
-  if (isNaN(num1) || isNaN(num2)) {
+  let num1 = req.body.num1;
+  let num2 = req.body.num2;
+  if (isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))) {
     res.send({
       status: "failure",
       message: "Invalid data types",
-      diffrence: undefined
+      difference: undefined
     });
     return;
   }
-
-  if (num1 > 1000000 || num2 > 1000000) {
+  if (parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000) {
     res.send({
-      status: "error",
+      status: "Error",
       message: "Overflow",
       difference: undefined
     });
     return;
   }
-
-  if (num1 < -1000000 || num2 < -1000000) {
+  if (parseFloat(num2) < -1000000 || parseFloat(num1) < -1000000) {
     res.send({
-      status: "error",
+      status: "Error",
       message: "Underflow",
       difference: undefined
     });
     return;
   }
-
-  if (!isNaN(num1) || !isNaN(num2)) {
-    let diff = parseFloat(num1) - parseFloat(num2);
+  if (!isNaN(parseFloat(num1)) && !isNaN(parseFloat(num1))) {
     res.send({
       status: "success",
       message: "the difference of given two numbers",
-      diffrence: diff
+      difference: parseFloat(num1) - parseFloat(num2)
     });
-    return;
   }
 });
 

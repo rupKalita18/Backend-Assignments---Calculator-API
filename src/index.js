@@ -102,7 +102,7 @@ app.post("/sub", (req, res) => {
     let diff = num1 - num2;
     res.send({
       status: "success",
-      message: "the diffence is",
+      message: "the difference of given two numbers",
       diffrence: diff
     });
     return;

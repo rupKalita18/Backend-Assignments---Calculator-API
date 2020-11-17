@@ -68,8 +68,8 @@ app.post("/add", (req, res) => {
 
 //subtraction
 app.post("/sub", (req, res) => {
-  let num1 = parseFloat(req.body.num1);
-  let num2 = parseFloat(req.body.num2);
+  let num1 = Number(req.body.num1);
+  let num2 = Number(req.body.num2);
 
   if (isNaN(num1) || isNaN(num2)) {
     res.send({
@@ -99,7 +99,7 @@ app.post("/sub", (req, res) => {
   }
 
   if (!isNaN(num1) || !isNaN(num2)) {
-    let diff = num1 - num2;
+    let diff = parseFloat(num1) - parseFloat(num2);
     res.send({
       status: "success",
       message: "the difference of given two numbers",

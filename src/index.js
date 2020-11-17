@@ -99,7 +99,7 @@ app.post("/sub", (req, res) => {
   }
 
   if (!isNaN(num1) || isNaN(num2)) {
-    let diff = Math.abs(num1 - num2);
+    let diff = num1 - num2;
     res.send({
       status: "success",
       message: "the diffence is",
